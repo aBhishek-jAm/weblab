@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            .container{
+                padding: 20px 50px;
+                margin: 20px auto;
+                width: 30%;
+                background-color: aliceblue;
+                text-align: center;
+            }
+            #content, #jsoncontent{
+                padding: 10px; 
+                font-size: 16px;
+                width: 100%;
+                border: 1px solid black;
+                margin: 10px 10px;
+             }
+        </style>
+    </head>
+    <body>
+        <h1>AJAX & JSON Example</h1>
+        <div class="container">
+        <div id="content">YOUR CONTENTS WILL LOAD HERE</div>
+        <button onclick="loadcontent()">with jquery</button>
+        <button onclick="loadcontentwithoutjquery()">without jquery</button>
+        <div id="jsoncontent">Your contents will load here</div>
+        <button onclick="loadjson()">with getJSON</button>
+        <button onclick="parsejson()">with parseJSON</button>
+        </div>
+        <script>
+
+            function loadcontent(){
+                $.get("textfile.txt",data=>$("#content").text(data));
+            }
+
+            function loadcontentwithoutjquery(){
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET","textfile.txt",true);
+                xhr.onload = () =>{
+                    if(xhr.status === 200){
+                        document.getElementById("content").textContent = xhr.responseText;
+                    }
+                };
+                xhr.send();
+            }
+            function loadjson(){
+                $.getJSON("data.json",data=>{
+                    $("#jsoncontent").text(`Name:${data.name}, age: ${data.age}, city: ${data.city}`);
+                });
+            }
+
+            function parsejson(){
+                $.get("data.json",data=>{
+                    $("#jsoncontent").text(`Name:${data.name},age: ${data.age}, city: ${data.city}`);
+                });
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+textfile.txt
+create a textfile and save some random text within.
+
+data.json  #seperate file
+{
+    "name": "John Doe",
+    "age": 30,
+    "city": "New York"
+}
+
+python -m http.server 8000 --bind 127.0.0.1  command for local server
