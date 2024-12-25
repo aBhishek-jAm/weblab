@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Operations</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        button { margin: 10px; padding: 10px; cursor: pointer; }
+        #output { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+</head>
+<body>
+    <h1>JSON Operations</h1>
+    <button onclick="convertJSON()">JSON to Object</button>
+    <button onclick="convertDate()">JSON to Date</button>
+    <button onclick="jsonToCSV()">JSON to CSV</button>
+    <button onclick="csvToJSON()">CSV to JSON</button>
+    <div id="output"></div>
+
+    <script>
+        const jsonString = '{"name": "Alice", "age": 25, "city": "London"}';
+        const jsonDate = '{"date": "2023-09-20T15:30:00Z"}';
+        const jsonArray = [{ name: "Alice", age: 25, city: "London" }, { name: "Bob", age: 30, city: "Paris" }];
+        const csvString = "name,age,city\nAlice,25,London\nBob,30,Paris";
+
+        // a) JSON to Object
+        const convertJSON = () => {
+            const obj = JSON.parse(jsonString);
+            document.getElementById('output').textContent = `Name: ${obj.name}, Age: ${obj.age}, City: ${obj.city}`;
+        };
+
+        // b) JSON to Date
+        const convertDate = () => {
+            const dateObj = new Date(JSON.parse(jsonDate).date);
+            document.getElementById('output').textContent = `Date: ${dateObj}`;
+        };
+
+        // c) JSON to CSV using PapaParse
+        const jsonToCSV = () => {
+            const csv = Papa.unparse(jsonArray);
+            document.getElementById('output').textContent = csv;
+        };
+
+        // d) CSV to JSON using PapaParse
+        const csvToJSON = () => {
+            const json = Papa.parse(csvString, { header: true }).data;
+            document.getElementById('output').textContent = JSON.stringify(json, null, 2);
+        };
+    </script>
+</body>
+</html>
