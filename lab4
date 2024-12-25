@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>form</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .container{
+            border: 2px solid papayawhip;
+            padding: 20px;
+            margin: 20px auto;
+            width:30%;
+            background-color: azure;
+        }
+        .button{
+            text-align: center;
+        }
+        input[type="submit"]{
+                background-color: green;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            #name{
+                width: 100%;
+                height: 25px;
+            }
+    </style>
+</head>
+<body>
+    <h3 style="text-align: center; color:white;">REGISTER FORM</h3>
+    <form class="container">
+        <div>
+            <label for ="name">FName:</label>
+            <br>
+            <input type="text" id = "name" placeholder="Enter your first name" required>
+        </div>
+        <br>
+        <div>
+            <label for ="name">LName:</label>
+            <br>
+            <input type="text" id = "name" placeholder="Enter your last name" required>
+        </div>
+        <br>
+        <div>
+            <label for="email">Email</label>
+            <br>
+            <input type="email" id="email" placeholder="enter your email" required>
+        </div>
+        <br>
+        <div>
+            <label for="password">Password:</label>
+            <br>
+            <input type="password" id = "password" placeholder="enter your password" required>
+        </div>
+        <br>
+        <div>
+            <label for="gender">Gender:</label>
+            <br>
+            <label for="male">male</label>
+            <input type ="radio" id = "male" name = "sex" value="male" required>
+            <label for="female">female</label>
+            <input type="radio" id = "female" name ="sex" value="female" required>
+        </div>
+        <br>
+        <div>
+            <label for="DOB">Date of Birth</label>
+            <input type="date" id="DOB" required>
+        </div>
+        <br>
+        <div>
+            <label for="country">Country:</label>
+            <select id="country" required>
+                <option value="">Select Country</option>
+                <option value ="india">India</option>
+                <option value="usa">USA</option>
+                <option value="canada">Canada</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label for ="bio">BIO:</label>
+            <br>
+            <textarea id="bio" rows="5" cols="50" placeholder="Enter your bio"></textarea>
+        </div>
+        <div class="button">
+            <input type="submit" id="submit" value="submit">
+        </div>
+    </form>
+</body>
