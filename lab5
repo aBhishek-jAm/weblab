@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>lab5</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;      
+            }
+            body{
+                background-color: #808080;
+            }
+            .header{
+                width:100%;
+                height: 100px;
+                background-color: #f5f5f5;
+                text-align: center;
+                line-height: 250%;
+                padding: 10px;
+            }
+            .header1{
+                width: 100%;
+                height : 25px;
+                background-color: #f4f4f4;
+                display: flex;
+                justify-content: space-around;
+                margin-bottom: 2px;
+               
+            }
+            .parent{
+                width: 100%; 
+                display: flex;
+               
+            }
+            .twochild{
+                width: 34%;
+                height: 300px;
+                background-color: #f4f4f4;
+                text-align: center;
+                padding: 20px;
+                border: #fff 1px solid;
+            }
+            .onechild{
+                width: 34%;
+                height: 300px;
+                background-color: #f4f4f4;
+                text-align: center;
+                padding: 20px;
+                border: #fff 1px solid;
+            }
+            .threechild{
+                width: 32%;
+                height: 300px;
+                background-color: #f4f4f4;
+                text-align: center;
+                padding: 20px;
+                border: #fff 1px solid;
+            }
+            img{
+                border-radius: 50%;
+            }
+            .footer{
+                width: 100%;
+                height: 200px;
+                background-color: #f4f4f4;
+                margin-top: 2px;  
+            }
+            table{
+                width: 50%;
+                border-collapse: collapse;
+                margin: 10px auto;
+            }
+
+            </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>TIMES OF INDIA</h1>
+            <p>Your Source for Reliable News</p>
+        </div>
+        <div class="header1">
+            <a href="#" style="text-decoration: none;">HOME</a>
+            <a href="#" style="text-decoration: none;">ABOUT</a>
+            <a href="#" style="text-decoration: none;">CONTACT</a>
+        </div>
+        <div class="parent">
+            <div class="onechild">
+                <h2>ARTICLE</h2>
+                <br>
+                <img src="profile.jpg" alt="Example Image" width="100">
+                <br>
+                <p>This image consists of a superhero named Batman, who is a marveloushero.he is from gotham city of banglore.He saved 20 ppl today</p>
+            </div>
+            <div class="twochild">
+                <h2>ARTICLE</h2>
+                <br>
+                <img src="profile.jpg" alt="Example Image" width="100">
+                <br>
+                <p>This image consists of a superhero named Batman, who is a marveloushero.he is from gotham city of banglore.He saved 20 ppl today</p>
+            </div>
+            <div class="threechild">
+                <h3>RECENT ARTICLE</h3>
+                <br>
+               <ul>
+                <li style="list-style: none;"><a href="#">Link 1</a></li>
+                <br>
+                <li style="list-style: none;"><a href="#">Link 2</a></li>
+                <br>
+                <li style="list-style: none;"><a href="#">Link 3</a></li>
+                <br>
+                <li style="list-style: none;"><a href="#">Link 4</a></li>
+                <br>
+                <li style="list-style: none;"><a href="#">Link 5</a></li>
+                <br>
+               </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <h2>EVENTS</h2>
+            <br>
+<table border="2px">
+    <tr>
+        <th>event</th>
+        <th>date</th>
+        <th>venue</th>
+    </tr>
+    <tr>
+        <td>cricket match</td>
+        <td>27-11-2021</td>
+        <td>banglore</td>
+ 
+    </tr>
+    <tr>
+        <td>music concert</td>
+        <td>29-12-2021</td>
+        <td>manglore</td>
+
+    </tr>
+</table>
+<br>
+<p style="text-align: center;">for business contact us</p>
+        </div>
+    </body>
+</html>
