@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Script Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .container { margin-top: 50px; text-align: center; }
+   
+    #list { list-style: none; padding: 0; } 
+    .box { 
+       width: 100px;
+       height: 100px; 
+       background: lightblue; 
+       margin: 20px auto; display: flex; 
+       justify-content: center; align-items: center; 
+       font-weight: bold; 
+       color: white;
+       }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p id="paragraph">This is an example paragraph.</p>
+    <ul id="list"><li>List item 1</li><li>List item 2</li></ul>
+    <div id="animatedDiv" class="box">I am a div!</div>
+    <button id="appendButton">Append Content</button>
+    <button id="animateButton">Animate Div</button>
+  </div>
+  <script>
+    $(document).ready(function() {
+      $('#appendButton').click(function() {
+        //$('#paragraph').append(' Appended text.');
+        $('#list').append('<li>New list item</li>');
+      });
+      $('#animateButton').click(function() {
+        $('#animatedDiv').animate({ width: '200px', height: '200px', opacity: 0.5 }, 1000, function() {
+          $('#animatedDiv').css('background-color', 'coral');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
