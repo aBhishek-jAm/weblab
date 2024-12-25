@@ -1,0 +1,64 @@
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "school";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch student records
+$sql = "SELECT * FROM students";
+$result = $conn->query($sql);
+
+$students = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $students[] = $row;
+    }
+}
+
+// Sort students by grade in ascending order
+usort($students, function ($a, $b) {
+    return $a['grade'] <=> $b['grade'];
+});
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sorted Student Records</title>
+</head>
+<body>
+    <h1>Sorted Student Records</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Grade</th>
+        </tr>
+        <?php if (!empty($students)): ?>
+            <?php foreach ($students as $student): ?>
+                <tr>
+                    <td><?= $student['id']; ?></td>
+                    <td><?= $student['name']; ?></td>
+                    <td><?= $student['grade']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr>
+                <td colspan="3">No records found.</td>
+            </tr>
+        <?php endif; ?>
+    </table>
+</body>
+</html>
+
+<?php
+$conn->close();
+?>
